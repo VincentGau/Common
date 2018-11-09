@@ -163,6 +163,8 @@ namespace Common
 
             appender.ActivateOptions();
             BasicConfigurator.Configure(appender);
+
+            // 如果没有配置logger name，默认使用DefaultLogger这个名字；
             logger = LogManager.GetLogger(ConfigHelper.GetString("loggerName") ?? "DefaultLogger");
         }
 
