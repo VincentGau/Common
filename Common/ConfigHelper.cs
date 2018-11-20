@@ -18,5 +18,10 @@ namespace Common
         {
             return Convert.ToInt32(ConfigurationManager.AppSettings[key]);
         }
+
+        public static bool Contains(string key)
+        {
+            return ConfigurationManager.AppSettings.AllKeys.Contains(key);
+        }
     }
 }
