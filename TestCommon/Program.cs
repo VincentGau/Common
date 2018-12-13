@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using Common.Security;
 
 namespace TestCommon
 {
@@ -11,10 +12,11 @@ namespace TestCommon
     {
         static void Main(string[] args)
         {
-            Logger.Info("lalala");
+            //Logger.Info("lalala");
             //Console.WriteLine(Validation.isPhoneNo("123") );
             //ConfigHelper.GetIntValue("kk");
             //var a = StringHelper.GetListFromString("123");
+            Console.WriteLine(CheckDigest.GetFileDigest("C:\\Workspace\\lalalalalala2.txt")); 
         }
     }
 }
