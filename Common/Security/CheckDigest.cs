@@ -10,11 +10,11 @@ namespace Common.Security
     public static class CheckDigest
     {
         /// <summary>
-        /// 计算文件摘要
+        /// 计算文件MD5
         /// </summary>
         /// <param name="filepath"></param>
         /// <returns></returns>
-        public static string GetFileDigest(string filepath)
+        public static string GetFileMD5(string filepath)
         {
             using (FileStream file = new FileStream(filepath, FileMode.Open))
             {
@@ -31,26 +31,26 @@ namespace Common.Security
         }
 
         /// <summary>
-        /// 检查文件的摘要是否与预期一致
+        /// 检查文件的MD5是否与预期一致
         /// </summary>
         /// <param name="filepath"></param>
         /// <param name="expectedString"></param>
         /// <returns></returns>
-        public static bool CheckFileDigest(string filepath, string expectedString)
+        public static bool CheckFileMD5String(string filepath, string expectedString)
         {
-            return GetFileDigest(filepath).Equals(expectedString);
+            return GetFileMD5(filepath).Equals(expectedString);
         }
 
 
         /// <summary>
-        /// 检查两个文件的摘要是否一致
+        /// 检查两个文件的MD5是否一致
         /// </summary>
         /// <param name="filepath1"></param>
         /// <param name="filepath2"></param>
         /// <returns></returns>
-        public static bool CheckFiles(string filepath1, string filepath2)
+        public static bool CompareFilesMD5(string filepath1, string filepath2)
         {
-            return GetFileDigest(filepath1).Equals(GetFileDigest(filepath2));
+            return GetFileMD5(filepath1).Equals(GetFileMD5(filepath2));
         }
     }
 }

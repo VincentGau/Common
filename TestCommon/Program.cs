@@ -16,7 +16,7 @@ namespace TestCommon
             //Console.WriteLine(Validation.isPhoneNo("123") );
             //ConfigHelper.GetIntValue("kk");
             //var a = StringHelper.GetListFromString("123");
-            Console.WriteLine(CheckDigest.GetFileDigest("C:\\Workspace\\lalalalalala2.txt")); 
+            Console.WriteLine(CheckDigest.GetFileMD5(@"d:\test.txt")); 
         }
     }
 }
