@@ -14,25 +14,26 @@ namespace Common.Tests
         [TestMethod()]
         public void IsDateTimeTest()
         {
-            Assert.AreEqual(Validation.IsDateTime("2018-12-12"), true);
-            Assert.AreEqual(Validation.IsDateTime("2018/12/12"), true);
-            Assert.AreEqual(Validation.IsDateTime("2018/12/2"), true);
-            Assert.AreEqual(Validation.IsDateTime("2018/12/02"), true);
-            Assert.AreEqual(Validation.IsDateTime("2018-12-123"), false);
-            Assert.AreEqual(Validation.IsDateTime("2018-12-32"), false);
-            Assert.AreEqual(Validation.IsDateTime("20181213"), false);
+            Assert.IsTrue(Validation.IsDateTime("2018-12-12"));
+            Assert.IsTrue(Validation.IsDateTime("2018/12/12"));
+            Assert.IsTrue(Validation.IsDateTime("2018/12/2"));
+            Assert.IsTrue(Validation.IsDateTime("2018/12/02"));
+            Assert.IsFalse(Validation.IsDateTime("2018-12-123"));
+            Assert.IsFalse(Validation.IsDateTime("2018-12-32"));
+            Assert.IsFalse(Validation.IsDateTime("20181213"));
         }
 
         [TestMethod()]
         public void IsPhoneNoTest()
         {
-            Assert.AreEqual(Validation.IsPhoneNo("13800138000"), true);
-            Assert.AreEqual(Validation.IsPhoneNo("138001380001"), false);
-            Assert.AreEqual(Validation.IsPhoneNo("138001380"), false);
-            Assert.AreEqual(Validation.IsPhoneNo("A1380013800"), false);
-            Assert.AreEqual(Validation.IsPhoneNo("23423423423"), false);
-            Assert.AreEqual(Validation.IsPhoneNo("1380013800@"), false);
-            Assert.AreEqual(Validation.IsPhoneNo("1380013800o"), false);
+            Assert.IsTrue(Validation.IsPhoneNo("13800138000"));
+            Assert.IsFalse(Validation.IsPhoneNo("138001380001"));
+            Assert.IsFalse(Validation.IsPhoneNo("138001380"));
+            Assert.IsFalse(Validation.IsPhoneNo("A1380013800"));
+            Assert.IsFalse(Validation.IsPhoneNo("23423423423"));
+            Assert.IsFalse(Validation.IsPhoneNo("1380013800@"));
+            Assert.IsFalse(Validation.IsPhoneNo("1380013800o"));
+            Assert.IsFalse(Validation.IsPhoneNo("1380013800o"));
         }
     }
 }
