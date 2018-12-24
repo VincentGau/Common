@@ -29,13 +29,13 @@ namespace Common
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static bool isPhoneNo(string input)
+        public static bool IsPhoneNo(string input)
         {
             phonePattern = ConfigurationManager.AppSettings["phonePattern"] == null
                 ? phonePattern
                 : ConfigurationManager.AppSettings["phonePattern"];
 
-            return isValid(input, phonePattern);
+            return IsValid(input, phonePattern);
         }
 
         /// <summary>
@@ -43,13 +43,13 @@ namespace Common
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static bool isEmail(string input)
+        public static bool IsEmail(string input)
         {
             emailPattern = ConfigurationManager.AppSettings["emailPattern"] == null
                 ? emailPattern
                 : ConfigurationManager.AppSettings["emailPattern"];
 
-            return isValid(input, emailPattern);
+            return IsValid(input, emailPattern);
         }
 
 
@@ -59,7 +59,7 @@ namespace Common
         /// <param name="input"></param>
         /// <param name="pattern"></param>
         /// <returns></returns>
-        public static bool isValid(string input, string pattern)
+        public static bool IsValid(string input, string pattern)
         {
             return System.Text.RegularExpressions.Regex.Match(input, pattern).Success;
         }
