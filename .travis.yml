@@ -2,6 +2,7 @@ language: csharp
 solution: Common.sln
 install:
   - nuget restore Common.sln
-  - nuget install xunit.runners -Version 2.4.1 -OutputDirectory testrunner
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - mono ./testrunner/xunit.runners.2.4.1/tools/xunit.console.clr4.exe ./CommonLib.Tests/bin/Release/CommonLib.Tests.dll
+  - xbuild /p:Configuration=Release Commo.sln
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./CommonLib.Tests/bin/Release/CommonLib.Tests.dll
