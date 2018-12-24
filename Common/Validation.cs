@@ -64,6 +64,16 @@ namespace Common
             return System.Text.RegularExpressions.Regex.Match(input, pattern).Success;
         }
 
+        /// <summary>
+        /// 判断字符串是否是日期格式
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsDateTime(string s)
+        {
+            return DateTime.TryParse(s, out DateTime dt);
+        }
+
         #endregion
     }
 }

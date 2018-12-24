@@ -16,7 +16,11 @@ namespace TestCommon
             //Console.WriteLine(Validation.isPhoneNo("123") );
             //ConfigHelper.GetIntValue("kk");
             //var a = StringHelper.GetListFromString("123");
-            Console.WriteLine(CheckDigest.GetFileMD5(@"d:\test.txt")); 
+            //Console.WriteLine(CheckDigest.GetFileMD5(@"d:\test.txt")); 
+
+            Console.WriteLine(Validation.IsDateTime("2018/01/01"));
+            Console.WriteLine(Validation.IsDateTime("2018-01-01"));
+            Console.WriteLine(Validation.IsDateTime("20180101"));
         }
     }
 }
