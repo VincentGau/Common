@@ -23,12 +23,21 @@ namespace ConsoleApp.Diagnostic
             int estimateCount = 0; //防止文件过大，一个文件写入多少次后则新建文件
             int fileCount = 1; //新文件编号
 
-            string fileName = string.Format("{0}-{1}-{2}.txt", counterName, instanceName, fileCount);
+            string fileName = $"{counterName}-{instanceName}-{fileCount}.txt";
 
             while (true)
             {
                 recordCount++;
-                string cc = currentConnectionsCounter.NextValue().ToString();
+                string cc = string.Empty;
+                try
+                {
+                    cc = currentConnectionsCounter.NextValue().ToString();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    cc = "---";
+                }
+
                 Console.WriteLine(cc);
                 ccList.Add(cc); 
 
@@ -36,7 +45,7 @@ namespace ConsoleApp.Diagnostic
                 if (estimateCount >= 10000)
                 {
                     fileCount++;
-                    fileName = string.Format("{0}-{1}-{2}.txt", counterName, instanceName, fileCount);
+                    fileName = $"{counterName}-{instanceName}-{fileCount}.txt";
                     estimateCount = 0;                    
                 }
 
