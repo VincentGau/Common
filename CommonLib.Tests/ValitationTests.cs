@@ -34,5 +34,14 @@ namespace CommonLib.Tests
             Assert.False(Validation.IsPhoneNo("1380013800o"));
             Assert.False(Validation.IsPhoneNo("1380013800o"));
         }
+
+        [Fact]
+        public void IsChinese_Test()
+        {
+            Assert.True(Validation.IsChinese("啊"));
+            Assert.True(Validation.IsChinese("，"));
+            Assert.False(Validation.IsChinese(","));
+            Assert.False(Validation.IsChinese("a"));
+        }
     }
 }

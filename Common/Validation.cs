@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Common
@@ -57,7 +58,7 @@ namespace Common
         /// <returns></returns>
         public static bool IsValid(string input, string pattern)
         {
-            return System.Text.RegularExpressions.Regex.Match(input, pattern).Success;
+            return Regex.Match(input, pattern).Success;
         }
 
         /// <summary>
@@ -68,6 +69,17 @@ namespace Common
         public static bool IsDateTime(string s)
         {
             return DateTime.TryParse(s, out DateTime dt);
+        }
+
+        /// <summary>
+        /// 判断是否汉字或者中文标点
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static bool IsChinese(string input)
+        {
+            Regex reg = new Regex("[\u4E00-\u9FFF]|[\uFE30-\uFFA0]");
+            return reg.IsMatch(input);
         }
 
         #endregion

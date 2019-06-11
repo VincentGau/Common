@@ -35,5 +35,14 @@ namespace Common.Tests
             Assert.IsFalse(Validation.IsPhoneNo("1380013800o"));
             Assert.IsFalse(Validation.IsPhoneNo("1380013800o"));
         }
+
+        [TestMethod()]
+        public void IsChineseTest()
+        {
+            Assert.IsFalse(Validation.IsChinese("a"));
+            Assert.IsTrue(Validation.IsChinese("啊"));
+            Assert.IsTrue(Validation.IsChinese("，"));
+            Assert.IsFalse(Validation.IsChinese(","));
+        }
     }
 }
