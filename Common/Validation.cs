@@ -31,9 +31,7 @@ namespace Common
         /// <returns></returns>
         public static bool IsPhoneNo(string input)
         {
-            phonePattern = ConfigurationManager.AppSettings["phonePattern"] == null
-                ? phonePattern
-                : ConfigurationManager.AppSettings["phonePattern"];
+            phonePattern = ConfigurationManager.AppSettings["phonePattern"] ?? phonePattern;
 
             return IsValid(input, phonePattern);
         }
@@ -45,9 +43,7 @@ namespace Common
         /// <returns></returns>
         public static bool IsEmail(string input)
         {
-            emailPattern = ConfigurationManager.AppSettings["emailPattern"] == null
-                ? emailPattern
-                : ConfigurationManager.AppSettings["emailPattern"];
+            emailPattern = ConfigurationManager.AppSettings["emailPattern"] ?? emailPattern;
 
             return IsValid(input, emailPattern);
         }
